@@ -12,8 +12,8 @@ class App extends Component {
     this.consultarNoticias();
   }
   
-  consultarNoticias = async () => {
-    const url = `https://newsapi.org/v2/top-headlines?country=mx&category=business&apiKey=6099896616084c37b615978f83f2961d`;
+  consultarNoticias = async (categoria = 'general') => {
+    const url = `https://newsapi.org/v2/top-headlines?country=mx&category=${categoria}&apiKey=6099896616084c37b615978f83f2961d`;
     const respuesta = await fetch(url);
     const noticias = await respuesta.json();
   
@@ -29,7 +29,9 @@ class App extends Component {
           titulo="Noticias REACT API"
         />
         <div className="container white contenedor-noticias">
-          <Formulario/>
+          <Formulario
+            consultarNoticias={this.consultarNoticias}
+          />
           <ListaNoticias
             noticias={this.state.noticias}
           />

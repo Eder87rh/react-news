@@ -1,12 +1,16 @@
 import React from 'react';
-import { blue } from 'ansi-colors';
+import PropTypes from 'prop-types';
 
 const Header = ({ titulo }) => {
   return ( 
     <nav className="nav-wrapper light-blue darkend-3">
-      <a href="" className="brand-logo center">{titulo}</a>
+      <a href="#!" className="brand-logo center">{titulo}</a>
     </nav>
   );
+}
+
+Header.propTypes = {
+  titulo: PropTypes.string.isRequired
 }
  
 export default Header;
